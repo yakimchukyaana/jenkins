@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+allure {
+    report {
+        version.set("2.23.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.23.0")
+            }
+        }
+    }
+}
+
+compileTestJava{
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:6.16.1",
+            "org.junit.jupiter:junit-jupiter:5.9.2"
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task simple_test(type: Test){
+    useJUnitPlatform{
+        includeTags("simple")
+    }
+}
