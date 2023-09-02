@@ -46,6 +46,8 @@ public class RemoteRegistrationTest {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+
+        closeWebDriver();
     }
 
     @Test
