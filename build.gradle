@@ -31,7 +31,8 @@ compileTestJava{
 dependencies {
     testImplementation(
             "com.codeborne:selenide:6.16.1",
-            "org.junit.jupiter:junit-jupiter:5.9.2"
+            "org.junit.jupiter:junit-jupiter:5.9.2",
+            "io.qameta.allure:allure-selenide:2.23.0"
     )
 }
 
